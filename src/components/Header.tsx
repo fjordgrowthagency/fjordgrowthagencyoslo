@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoAnimate, setLogoAnimate] = useState(false);
 
   const navItems = [
     { label: "About", href: "#about" },
@@ -13,23 +14,30 @@ const Header = () => {
     { label: "Contact", href: "#contact" }
   ];
 
+  const handleNavClick = (href: string) => {
+    setLogoAnimate(true);
+    setTimeout(() => setLogoAnimate(false), 2000);
+    setIsMenuOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-primary/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Logo />
+          <Logo animate={logoAnimate} />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -58,14 +66,13 @@ const Header = () => {
           <div className="md:hidden border-t border-primary/10 py-4">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <Button className="btn-hero mt-4">
                 Free Audit

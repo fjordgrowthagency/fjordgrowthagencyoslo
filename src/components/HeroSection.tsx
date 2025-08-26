@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         {/* Logo with Animation */}
         <div className="mb-8 flex justify-center">
-          <Logo animate={true} className="text-white w-32 h-32" />
+          <Logo animate={true} className="text-white w-40 h-40" />
         </div>
 
         {/* Main Headline */}

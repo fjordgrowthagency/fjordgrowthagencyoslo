@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [logoAnimate, setLogoAnimate] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Results", href: "#results" },
-    { label: "Contact", href: "#contact" }
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Results", href: "/results" },
+    { label: "Contact", href: "/contact" }
   ];
 
   const handleNavClick = (href: string) => {
     setLogoAnimate(true);
     setTimeout(() => setLogoAnimate(false), 2000);
     setIsMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    navigate(href);
   };
 
   return (
@@ -26,7 +28,9 @@ const Header = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Logo animate={logoAnimate} />
+          <Link to="/" onClick={() => handleNavClick("/")}>
+            <Logo animate={logoAnimate} className="w-20 h-20" />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

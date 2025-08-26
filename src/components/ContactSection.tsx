@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,7 +39,7 @@ const ContactSection = () => {
                 <span className="text-accent block">Let's Talk!</span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Get in touch with our Oslo-based team and discover how we can 
+                Get in touch with our team and discover how we can 
                 help your laundry business thrive in the digital age.
               </p>
             </div>
@@ -50,10 +51,10 @@ const ContactSection = () => {
                   <MessageCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <div className="font-semibold text-primary">WhatsApp</div>
+                  <div className="font-semibold text-primary">Live Chat</div>
                   <div className="text-muted-foreground">Quick chat for instant answers</div>
                 </div>
-                <Button className="ml-auto bg-green-500 hover:bg-green-600 text-white">
+                <Button className="ml-auto bg-primary hover:bg-primary/90 text-white">
                   Chat Now
                 </Button>
               </div>
@@ -64,7 +65,17 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-primary">Phone Call</div>
-                  <div className="text-muted-foreground">Schedule a strategy session</div>
+                  <div className="text-muted-foreground">+44 7391 142540</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Mail className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold text-primary">Email</div>
+                  <div className="text-muted-foreground">fjordgrowthagency@gmail.com</div>
                 </div>
               </div>
 
@@ -73,20 +84,20 @@ const ContactSection = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <div className="font-semibold text-primary">Oslo Location</div>
-                  <div className="text-muted-foreground">Local team, local knowledge</div>
+                  <div className="font-semibold text-primary">Worldwide Service</div>
+                  <div className="text-muted-foreground">Remote team, global reach</div>
                 </div>
               </div>
             </div>
 
-            {/* Map Visualization */}
+            {/* Service Area */}
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
               <h3 className="text-lg font-semibold text-primary mb-3">
-                Serving All of Oslo
+                Serving Businesses Worldwide
               </h3>
               <p className="text-muted-foreground text-sm">
-                From Grünerløkka to Frogner, we help laundry businesses across 
-                all Oslo neighborhoods grow their customer base and increase revenue.
+                We help laundry businesses across the globe grow their customer base 
+                and increase revenue through our proven digital marketing strategies.
               </p>
             </div>
           </div>
@@ -139,7 +150,7 @@ const ContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+47 xxx xx xxx"
+                    placeholder="+44 xxx xxx xxxx"
                     required
                   />
                 </div>

@@ -3,12 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
-import LoadingScreen from "./LoadingScreen";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [logoAnimate, setLogoAnimate] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const navItems = [
@@ -19,17 +17,10 @@ const Header = () => {
   ];
 
   const handleNavClick = (href: string) => {
-    setIsLoading(true);
+    setLogoAnimate(true);
+    setTimeout(() => setLogoAnimate(false), 2000);
     setIsMenuOpen(false);
-    
-    // Simulate page loading delay
-    setTimeout(() => {
-      navigate(href);
-    }, 800);
-  };
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
+    navigate(href);
   };
 
   return (
@@ -44,13 +35,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.label}
-                onClick={() => handleNavClick(item.href)}
+                to={item.href}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -79,13 +70,14 @@ const Header = () => {
           <div className="md:hidden border-t border-primary/10 py-4">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.label}
-                  onClick={() => handleNavClick(item.href)}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
                   className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
               <Button className="btn-hero mt-4">
                 Free Audit
@@ -94,11 +86,6 @@ const Header = () => {
           </div>
         )}
       </div>
-      
-      <LoadingScreen 
-        isVisible={isLoading} 
-        onComplete={handleLoadingComplete}
-      />
     </header>
   );
 };

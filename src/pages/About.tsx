@@ -5,25 +5,32 @@ import { Badge } from "@/components/ui/badge";
 const About = () => {
   const teamMembers = [
     {
-      name: "Erik Hansen",
-      role: "Founder & Growth Strategist",
-      expertise: ["Digital Marketing", "Business Strategy", "Customer Acquisition"],
-      description: "10+ years helping laundry businesses scale with proven growth strategies.",
-      image: "/lovable-uploads/team-erik.jpg"
+      name: "LUKMAN JEJE",
+      role: "JEJESTICALLY PRO",
+      expertise: ["Digital Marketing", "Brand Strategy", "Creative Solutions"],
+      description: "Expert in creating compelling digital experiences and brand strategies for laundry businesses.",
+      image: "/lovable-uploads/bc0bf7c4-3118-4994-8fa7-bdae5975a8c7.png"
     },
     {
-      name: "Maria Johansson", 
-      role: "SEO & Local Marketing Expert",
-      expertise: ["Local SEO", "Google My Business", "Content Marketing"],
-      description: "Specialist in making laundry services visible to local Oslo customers.",
-      image: "/lovable-uploads/team-maria.jpg"
+      name: "MUSBAU BASIT", 
+      role: "BASIT DIGITAL HUB",
+      expertise: ["Digital Innovation", "Growth Hacking", "Performance Marketing"],
+      description: "Specialist in digital transformation and performance-driven marketing solutions.",
+      image: "/lovable-uploads/0866dbc8-df0a-4a46-9567-854b04fe9b47.png"
     },
     {
-      name: "Anders Nilsen",
-      role: "Conversion & Funnel Specialist", 
-      expertise: ["Sales Funnels", "Customer Journey", "CRO"],
-      description: "Expert in turning website visitors into loyal laundry customers.",
-      image: "/lovable-uploads/team-anders.jpg"
+      name: "ALANI TEMITOPE",
+      role: "LEAMZY GROWTH TECH", 
+      expertise: ["Growth Technology", "Analytics", "Customer Acquisition"],
+      description: "Expert in leveraging technology for sustainable business growth and customer acquisition.",
+      image: "/lovable-uploads/b1063ee6-690d-4dfe-adb6-703d154d6856.png"
+    },
+    {
+      name: "HAMMED TAWWAB",
+      role: "MAXI TAWWAB", 
+      expertise: ["Strategic Consulting", "Business Development", "Market Expansion"],
+      description: "Consultant specializing in business development and market expansion strategies.",
+      image: "/lovable-uploads/5fa598dc-95cc-4aee-84b2-b7be3060e065.png"
     }
   ];
 
@@ -92,8 +99,12 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <Card key={index} className="card-premium border-0 overflow-hidden">
-                <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <div className="text-6xl">👨‍💼</div>
+                <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>

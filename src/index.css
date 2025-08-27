@@ -186,7 +186,9 @@
 
 @keyframes roll {
   0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
-  50% { transform: rotate(180deg) scale(1.1); opacity: 0.8; }
+  25% { transform: rotate(90deg) scale(1.2); opacity: 0.6; }
+  50% { transform: rotate(180deg) scale(1.3); opacity: 0.8; }
+  75% { transform: rotate(270deg) scale(1.2); opacity: 0.9; }
   100% { transform: rotate(360deg) scale(1); opacity: 1; }
 }
 

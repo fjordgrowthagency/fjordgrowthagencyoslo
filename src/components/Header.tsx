@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
+import LoadingScreen from "./LoadingScreen";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [logoAnimate, setLogoAnimate] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const navItems = [
@@ -17,10 +19,17 @@ const Header = () => {
   ];
 
   const handleNavClick = (href: string) => {
-    setLogoAnimate(true);
-    setTimeout(() => setLogoAnimate(false), 2000);
+    setIsLoading(true);
     setIsMenuOpen(false);
-    navigate(href);
+    
+    // Simulate page loading delay
+    setTimeout(() => {
+      navigate(href);
+    }, 800);
+  };
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -85,6 +94,11 @@ const Header = () => {
           </div>
         )}
       </div>
+      
+      <LoadingScreen 
+        isVisible={isLoading} 
+        onComplete={handleLoadingComplete}
+      />
     </header>
   );
 };

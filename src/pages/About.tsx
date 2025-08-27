@@ -103,7 +103,11 @@ const About = () => {
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${
+                      member.name === "MUSBAU BASIT" || member.name === "HAMMED TAWWAB" 
+                        ? "object-top" 
+                        : ""
+                    }`}
                   />
                 </div>
                 <CardContent className="p-6">

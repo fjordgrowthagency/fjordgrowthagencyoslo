@@ -10,6 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navItems = [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Results", href: "/results" },

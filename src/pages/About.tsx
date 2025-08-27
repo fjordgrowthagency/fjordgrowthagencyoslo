@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -76,7 +77,11 @@ const About = () => {
             </div>
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl">🏔️</div>
+                <img 
+                  src="/lovable-uploads/b53482a7-7762-411a-9ce4-3e99968794a0.png"
+                  alt="Fjord Growth Agency Logo"
+                  className="w-48 h-48 object-contain"
+                />
               </div>
             </div>
           </div>
@@ -168,6 +173,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

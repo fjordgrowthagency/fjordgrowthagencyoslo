@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Results = () => {
@@ -8,6 +9,7 @@ const Results = () => {
       <div className="pt-20">
         <TestimonialsSection />
       </div>
+      <Footer />
     </div>
   );
 };

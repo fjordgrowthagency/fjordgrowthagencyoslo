@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
 
@@ -10,6 +11,7 @@ const Contact = () => {
         <CTASection />
         <ContactSection />
       </div>
+      <Footer />
     </div>
   );
 };
